@@ -19,9 +19,9 @@ app.use((req, res, next) => {
    next();
 });
 
-app.use((req, res, next) => {
-   res.render('maintain');
-});
+// app.use((req, res, next) => {
+//    res.render('maintain');
+// });
 
 hbs.registerPartials(__dirname + '/views/partials');
 hbs.registerHelper('getCurrentYear', () => new Date().getFullYear());
@@ -44,6 +44,12 @@ app.get('/about', (req, res) => {
 
 app.get('/bad', (req, res) => {
    res.send('TERRRRIBLE!!!!!!!!'); 
+});
+
+app.get('/projects', (req, res) => {
+   res.render('projects', {
+      pageTitle: 'My projects'
+   });
 });
 
 app.listen(port, () => {
